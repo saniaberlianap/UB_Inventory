@@ -67,7 +67,8 @@ Route::group(['middleware' => ['auth','chckRole:admin,staff']], function(){
 	Route::put('barang/update/{id_barang}', ['as' => 'barang.update', 'uses' => 'BarangController@update']);
 	Route::get('barang/delete/{id_barang}', ['as' => 'barang.delete', 'uses' => 'BarangController@delete']);
 
-	Route::get('cetak/export_excel', 'CetakController@export_excel');
+	Route::get('cetak/export_excelBarang', 'CetakController@export_excelBarang');
+	Route::get('cetak/export_pdfBarang', 'CetakController@export_pdfBarang');
 
 });
 
