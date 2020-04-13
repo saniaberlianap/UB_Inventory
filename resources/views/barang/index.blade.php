@@ -29,7 +29,10 @@
             <a href="{{ route('barang.create') }}">
               <button type="button" class="btn btn-primary">Add New</button>
             </a>
+             <a href="cetak/export_excel" class="btn btn-success my-3" target="_blank">Export Excel</a>
+            </a>
           </div></div>
+           
           @endif
 <!-- Diajari Musavi Ardabilly Taufik -->
           <div class="card-body">

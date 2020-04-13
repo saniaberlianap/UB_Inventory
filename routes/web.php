@@ -67,6 +67,8 @@ Route::group(['middleware' => ['auth','chckRole:admin,staff']], function(){
 	Route::put('barang/update/{id_barang}', ['as' => 'barang.update', 'uses' => 'BarangController@update']);
 	Route::get('barang/delete/{id_barang}', ['as' => 'barang.delete', 'uses' => 'BarangController@delete']);
 
+	Route::get('cetak/export_excel', 'CetakController@export_excel');
+
 });
 
 
@@ -74,9 +76,11 @@ Route::get('/login', 'AuthController@loginform')->name('login');
 
 Route::get('/register', 'AuthController@registerform');
 
-
-
 Route::get('/logout', 'AuthController@logout');
+
+
+
+
 
 Route::get('/', function () {
     return view('auth.login');
