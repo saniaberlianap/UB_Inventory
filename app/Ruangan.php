@@ -16,5 +16,8 @@ class Ruangan extends Model
     	return $this->belongsTo(Jurusan::class);
     }
 
-
+    public function barang()
+    {
+    	return $this->belongsTo(Barang::class, 'ruangan_id', 'id_ruangan');
+    }
 }

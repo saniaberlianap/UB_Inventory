@@ -34,6 +34,8 @@
             <a href="{{ route('jurusan.create') }}">
               <button type="button" class="btn btn-primary">Add New</button>
             </a>
+            <a href="cetak/export_excelJurusan" class="btn btn-success my-3" target="_blank">Export Excel</a>
+             <a href="cetak/export_pdfJurusan" class="btn btn-success my-3" target="_blank">Export PDF</a>
           </div>
           <div class="card-body">
             <table class="table table-bordered">

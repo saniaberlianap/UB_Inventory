@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Exports\BarangExport;
 
+use App\Exports\JurusanExport;
+
 use Maatwebsite\Excel\Facades\Excel;
 
 use App\Http\Controllers\Controller;
@@ -18,8 +20,14 @@ use App\Ruangan;
 
 use App\User;
 
+use App\Fakultas;
+
+use App\Jurusan;
+
+
 class CetakController extends Controller
 {
+	// Export data barang
     public function export_excelBarang()
 	{
 		return Excel::download(new BarangExport, 'Barang.xlsx');
@@ -34,4 +42,22 @@ class CetakController extends Controller
     	$pdf = PDF::loadview('barang.barang_pdf',['barang'=>$barang,'ruangan' => $ruangan, 'user' => $user]);
     	return $pdf->stream();
     }
+
+
+    // Export data jurusan
+
+    public function export_excelJurusan()
+    {
+        return Excel::download(new JurusanExport, 'DataJurusan.xlsx');
+    }
+
+    public function export_pdfJurusan()
+    {
+        $jurusan = Jurusan::all();
+        $fakultas = Fakultas::all();
+ 
+        $pdf = PDF::loadview('jurusan.jurusan_pdf',['jurusan'=>$jurusan,'fakultas' => $fakultas]);
+        return $pdf->stream();
+    }
+
 }

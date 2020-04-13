@@ -11,7 +11,12 @@ class Jurusan extends Model
     protected $fillable = ['nama_jurusan', 'fakultas_id'];
 
     public function fakultas(){
-    	return $this->belongsTo(Fakultas::class);
+    	return $this->belongsTo(Fakultas::class, 'fakultas_id', 'id_fakultas');
+    }
+
+     public function ruangan()
+    {
+    	return $this->belongsTo(Ruangan::class, 'jurusan_id', 'id');
     }
 
 

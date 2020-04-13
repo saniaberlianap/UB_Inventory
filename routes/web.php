@@ -40,6 +40,8 @@ Route::group(['middleware' => ['auth', 'chckRole:admin']], function(){
 	Route::get('jurusan/edit/{id}', ['as' => 'jurusan.edit', 'uses' => 'JurusanController@edit']);
 	Route::post('jurusan/update/{id}', ['as' => 'jurusan.update', 'uses' => 'JurusanController@update']);
 	Route::get('jurusan/delete/{id}', ['as' => 'jurusan.delete', 'uses' => 'JurusanController@delete']);
+	Route::get('cetak/export_pdfJurusan', 'CetakController@export_pdfJurusan');
+	Route::get('cetak/export_excelJurusan', 'CetakController@export_excelJurusan');
 
 	// Ruangan
 	Route::get('ruangan', ['as' => 'ruangan.index', 'uses' => 'RuanganController@index']);
