@@ -1,5 +1,5 @@
 @extends('layouts.adminmain')
-
+@section('title', 'Edit Data Fakultas')
 @section('content')
 <section class="section">
   

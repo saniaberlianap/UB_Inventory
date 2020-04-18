@@ -19,8 +19,8 @@ class CreateBarang extends Migration
             $table->string('nama_barang', 100);
             $table->integer('total');
             $table->integer('broken');
-            $table->unsignedBigInteger('created_by')->nullable();;
-            $table->unsignedBigInteger('updated_by')->nullable();;
+            $table->unsignedBigInteger('created_by')->nullable();
+            $table->unsignedBigInteger('updated_by')->nullable();
             $table->timestamps();
 
             $table->foreign('ruangan_id')->references('id_ruangan')->on('ruangan')

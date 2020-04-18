@@ -2,8 +2,6 @@
 
 use Illuminate\Database\Seeder;
 
-use App\Jurusan;
-
 class JurusanSeeder extends Seeder
 {
     /**
@@ -13,24 +11,6 @@ class JurusanSeeder extends Seeder
      */
     public function run()
     {
-        $listJurusan = [
-                        'Sistem Informasi',
-                        'Ilmu Hukum',
-                        'Administrasi Pendidikan',
-                        'Teknik Sipil',
-                        'Farmasi',
-                        'Biologi',
-                        'Sosiologi',
-                        'D3 Teknik Komputer'
-                    ];
-
-        $fakultas = 1;
-
-        foreach ($listJurusan as $jurusan) {
-        	Jurusan::create([
-                'fakultas_id' => $fakultas++,
-                'nama_jurusan' => $jurusan
-                ]);
-        }
+        Factory(App\Jurusan::class,8)->create();
     }
 }

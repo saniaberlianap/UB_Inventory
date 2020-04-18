@@ -26,9 +26,8 @@ class AuthController extends Controller
     		return redirect('/dashboard');
 
     	}
-        dd('salah');
 
-    	return redirect('/')->with('errors', 'email atau password salah !');
+    	return redirect('/');
     }
 
     public function logout(){

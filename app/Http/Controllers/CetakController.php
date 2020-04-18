@@ -28,10 +28,6 @@ use App\Jurusan;
 class CetakController extends Controller
 {
 	// Export data barang
-    public function export_excelBarang()
-	{
-		return Excel::download(new BarangExport, 'Barang.xlsx');
-	}
 
 	public function export_pdfBarang()
     {

@@ -1,5 +1,5 @@
 @extends('layouts.adminmain')
-@section('title', 'Tambah Data Barang')
+@section('title', 'Create Data Barang')
 @section('content')
 <section class="section">
   

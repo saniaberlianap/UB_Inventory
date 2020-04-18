@@ -10,6 +10,9 @@ use App\Ruangan;
 
 use App\User;
 
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\BarangExport;
+
 
 class BarangController extends Controller
 {
@@ -32,6 +35,10 @@ class BarangController extends Controller
 
 
         return view('barang.index', compact('dataBarang', 'ruangan', 'user'));
+    }
+
+    public function export(Request $request){
+        return Excel::download(new BarangExport, date("Y-m-d").'-Data Barang'.'.xlsx');
     }
 
     /**
@@ -59,7 +66,7 @@ class BarangController extends Controller
         $barang->total = $request->total;
         $barang->broken = $request->broken;
         $barang->created_by = $request->created_by;
-        // $barang->updated_by = $request->updated_by;
+        $barang->updated_by = $request->updated_by;
         $barang->ruangan_id = $request->ruangan_id;
         $barang->save();
 

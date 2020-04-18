@@ -13,7 +13,7 @@ class Ruangan extends Model
     protected $fillable = ['nama_ruangan', 'jurusan_id'];
 
     public function jurusan(){
-    	return $this->belongsTo(Jurusan::class);
+    	return $this->belongsTo(Jurusan::class, 'jurusan_id', 'id');
     }
 
     public function barang()
