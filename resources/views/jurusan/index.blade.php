@@ -1,5 +1,5 @@
 @extends('layouts.adminmain')
-
+@section('title', 'Index data Jurusan')
 @section('content')
 <section class="section">
   

@@ -44,7 +44,7 @@ class FakultasController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama_fakultas' => 'required',
+            'nama_fakultas' => 'required|unique:fakultas|max:50',
         ]);
 
       
@@ -91,7 +91,7 @@ class FakultasController extends Controller
     public function update(Request $request, $id_fakultas)
     {
         $request->validate([
-            'nama_fakultas' => 'required',
+            'nama_fakultas' => 'required|unique:fakultas|max:50',
         ]);
 
         $data = Fakultas::find($id_fakultas);

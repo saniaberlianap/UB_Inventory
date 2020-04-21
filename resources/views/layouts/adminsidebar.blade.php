@@ -1,7 +1,7 @@
 <div class="main-sidebar">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="/dashboard">Bernd</a>
+            <a href="/dashboard">UB Inventory</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
             <a href="index.html">Be</a>

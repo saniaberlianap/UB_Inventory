@@ -18,6 +18,7 @@
 		<thead>
 			<tr>
 				<th>ID Barang</th>
+				<th>Image</th>
 				<th>Nama Barang</th>
 				<th>Ruangan</th>
 				<th>Total</th>
@@ -31,6 +32,7 @@
 			@foreach($barang as $b)
 			<tr>
 				<td>{{$b->id_barang }}</td>
+				<td>{{$b->image}}</td>
 				<td>{{$b->nama_barang}}</td>
 				<td>{{$b->ruangan->nama_ruangan}}</td>
 				<td>{{$b->total}}</td>

@@ -18,7 +18,7 @@ class BarangExport implements FromCollection, WithHeadings, ShouldAutoSize
     public function collection()
     {
           return DB::table('Barang')
-            ->select('barang.id_barang', 'barang.nama_barang', 'ruangan.nama_ruangan', 'barang.total', 'barang.broken', 'user1.name as created_by', 'user2.name as updated_by', 'barang.created_at', 'barang.updated_at')
+            ->select('barang.id_barang','barang.image', 'barang.nama_barang', 'ruangan.nama_ruangan', 'barang.total', 'barang.broken', 'user1.name as created_by', 'user2.name as updated_by', 'barang.created_at', 'barang.updated_at')
             ->leftJoin('users as user1', 'user1.id', '=', 'barang.created_by')
             ->leftJoin('users as user2', 'user2.id', '=', 'barang.updated_by')
             ->leftJoin('ruangan', 'ruangan.id_ruangan', '=', 'barang.ruangan_id')
@@ -30,6 +30,7 @@ class BarangExport implements FromCollection, WithHeadings, ShouldAutoSize
     {
         return [
             'No',
+            'Image',
             'Barang',
             'Ruangan',
             'Total',

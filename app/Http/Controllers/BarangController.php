@@ -11,8 +11,12 @@ use App\Ruangan;
 use App\User;
 
 use Maatwebsite\Excel\Facades\Excel;
+
 use App\Exports\BarangExport;
 
+use Illuminate\Support\Facades\Storage;
+
+use Illuminate\Support\Facades\File;
 
 class BarangController extends Controller
 {
@@ -61,6 +65,22 @@ class BarangController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'image' => 'required|image|max:2048',
+            'nama_barang' => 'required|max:50',
+            'ruangan_id' => 'required',
+            'total' => 'required',
+            'broken' => 'required',
+            'created_by' => 'required',
+        ]);
+
+
+        $image = $request->file('image');
+
+        $new_name = 'barang-'.date('Ymdhis').'.'.$request->image->getClientOriginalExtension();
+        $image->move(public_path('images'), $new_name);
+        
         $barang = new Barang;
         $barang->nama_barang = $request->nama_barang;
         $barang->total = $request->total;
@@ -68,9 +88,10 @@ class BarangController extends Controller
         $barang->created_by = $request->created_by;
         $barang->updated_by = $request->updated_by;
         $barang->ruangan_id = $request->ruangan_id;
+        $barang->image = $new_name;
         $barang->save();
 
-        return redirect()->route('barang.index');
+        return redirect()->route('barang.index')->with('success', 'Data Added Successfully.');
 
     }
 
@@ -110,6 +131,17 @@ class BarangController extends Controller
     public function update(Request $request, $id_barang)
     {
 
+        $request->validate([
+            'image' => 'image|max:2048',
+            'nama_barang' => 'required|max:50',
+            'ruangan_id' => 'required',
+            'total' => 'required',
+            'broken' => 'required',
+            'created_by' => 'required',
+            'updated_by' => 'required',
+        ]);
+
+
         $barang = Barang::find($id_barang);
         $barang->nama_barang = $request->input('nama_barang');
         $barang->ruangan_id = $request->input('ruangan_id');
@@ -119,6 +151,13 @@ class BarangController extends Controller
         $barang->updated_by = $request->input('updated_by');
         $barang->save();
 
+        if ($request->hasFile('image')) {
+            $request->file('image')->move('images/',$request->file('image')->getClientOriginalName());
+            $barang->image = $request->file('image')->getClientOriginalName();
+        }
+
+        $barang->save();
+      
         return redirect()->route('barang.index')->with('success', 'Data is Successfully Updated');
 
     }

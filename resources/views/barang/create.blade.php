@@ -8,6 +8,15 @@
   </div>
 
   <div class="section-body">
+    @if($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
     <div class="col-12 col-md-6 col-lg-6">
         <div class="card">
           <div class="card-header">
@@ -20,8 +29,13 @@
            <div class="card-body">
             <form method="post" action="{{ route('barang.store') }}" enctype="multipart/form-data">
             @csrf
+
                 <div class="form-group">
-                    <label>Barang</label>
+                  <label>Pilih Gambar Barang</label>
+                      <input type="file" name="image" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label>Nama Barang</label>
                         <input type="text" name="nama_barang" class="form-control input-lg" />
                 </div>
               <div class="form-group">

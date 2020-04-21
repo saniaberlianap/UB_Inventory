@@ -10,6 +10,15 @@
   </div>
 
   <div class="section-body">
+     @if($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
     <div class="col-12 col-md-6 col-lg-6">
         <div class="card">
           <div class="card-header">

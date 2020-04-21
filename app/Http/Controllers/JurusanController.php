@@ -72,7 +72,7 @@ class JurusanController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama_jurusan' => 'required',
+            'nama_jurusan' => 'required|unique:jurusan|max:50',
             'fakultas_id' => 'required',
         ]);
 
@@ -123,7 +123,7 @@ class JurusanController extends Controller
 
      public function update($id, Request $request){
         $request->validate([
-            'nama_jurusan' => 'required',
+            'nama_jurusan' => 'required|unique:jurusan|max:50',
             'fakultas_id' => 'required',
         ]);
 

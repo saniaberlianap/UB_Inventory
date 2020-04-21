@@ -9,6 +9,11 @@
 
   <div class="section-body">
     <div class="col-12 col-md-12 col-lg-12">
+      @if($message = Session::get('success'))
+          <div class="alert alert-success">
+            <p> {{ $message }} </p>
+          </div>
+        @endif
         <div class="card">
           <div class="card-header">
             <form method="GET" class="form-inline">
@@ -40,7 +45,9 @@
                     <thead>
                         <tr>
                             <th scope="col">No</th>
+
                             <th scope="col">Nama Barang</th>
+                            <th scope="col">Image</th>
                             <th scope="col">Nama Ruangan</th>
                             <th scope="col">Total</th>
                             <th scope="col">Rusak</th>
@@ -53,6 +60,9 @@
                         @forelse($dataBarang as $key => $barang )
                             <tr>
                                 <td>{{ $dataBarang->firstItem()+$key }}</td>
+                                <td>
+                                  <img src="{{ URL::to('/') }}/images/{{ $barang->image }}" class="img-thumbnail" width="75"/>
+                                </td>
                                 <td>{{ $barang->nama_barang }}</td>
                                 <td>{{ $barang->ruangan->nama_ruangan }}</td>
                                 <td>{{ $barang->total }}</td>
