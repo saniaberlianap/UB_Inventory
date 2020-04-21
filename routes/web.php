@@ -20,7 +20,10 @@ Route::post('/postregister', 'AuthController@register');
 
 Route::group(['middleware' => ['auth', 'chckRole:admin']], function(){
 
-	Route::get('/dashboard', 'DashboardController@dashboard');
+	Route::get('/dashboard', function () {
+    return view('dashboard.index');
+	});
+
 
 		// Fakultas
 	Route::resource('fakultas', 'FakultasController');
