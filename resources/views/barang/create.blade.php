@@ -49,11 +49,11 @@
               </div>
               <div class="form-group">
                 <label>Total</label>
-                    <input type="text" name="total" class="form-control input-lg" />
+                    <input type="number" name="total" class="form-control input-lg" />
             </div>
             <div class="form-group">
                 <label>Rusak</label>
-                    <input type="text" name="broken" class="form-control input-lg" />
+                    <input type="number" name="broken" class="form-control input-lg" />
             </div>
             <div class="form-group">
                 <input type="text" class="form-control" name="created_by" id="created_by" value="{{auth()->user()->id}}" hidden>

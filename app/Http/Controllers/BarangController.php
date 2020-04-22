@@ -70,15 +70,15 @@ class BarangController extends Controller
             'image' => 'required|image|max:2048',
             'nama_barang' => 'required|max:50',
             'ruangan_id' => 'required',
-            'total' => 'required',
-            'broken' => 'required',
+            'total' => 'required|numeric',
+            'broken' => 'required|numeric',
             'created_by' => 'required',
         ]);
 
 
         $image = $request->file('image');
 
-        $new_name = 'barang-'.date('Ymdhis').'.'.$request->image->getClientOriginalExtension();
+        $new_name = rand() . '.' . $image->getClientOriginalExtension();
         $image->move(public_path('images'), $new_name);
         
         $barang = new Barang;
@@ -135,8 +135,8 @@ class BarangController extends Controller
             'image' => 'image|max:2048',
             'nama_barang' => 'required|max:50',
             'ruangan_id' => 'required',
-            'total' => 'required',
-            'broken' => 'required',
+            'total' => 'required|numeric',
+            'broken' => 'required|numeric',
             'created_by' => 'required',
             'updated_by' => 'required',
         ]);

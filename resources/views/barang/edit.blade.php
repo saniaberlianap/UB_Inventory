@@ -46,11 +46,11 @@
                 </div>
                 <div class="form-group">
                   <label>Total</label>
-                    <input type="text" name="total" class="form-control" value="{{ $barang->total }}">
+                    <input type="number" name="total" class="form-control" value="{{ $barang->total }}">
                 </div>
                 <div class="form-group">
                   <label>Rusak</label>
-                    <input type="text" name="broken" class="form-control" value="{{ $barang->broken }}">
+                    <input type="number" name="broken" class="form-control" value="{{ $barang->broken }}">
                 </div>
               <div class="form-group">
                 <label>Select Product Image</label>

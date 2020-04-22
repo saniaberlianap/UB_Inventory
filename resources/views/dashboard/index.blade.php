@@ -7,6 +7,9 @@
   	 @if(auth()->user()->role == 'admin')
     <h1>Dashboard Admin</h1>
    </div>
+   <h3>Selamat datang, {{ auth()->user()->name }}</h3>
+            <p>
+              <br>
      <div class="row">
            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
             <a href="{{ route('fakultas.index') }}">
@@ -82,8 +85,29 @@
 
     @else
     <h1>Dashboard Staff</h1>
-
 </div>
+
+<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+  <h3>Selamat datang, {{ auth()->user()->name }}</h3>
+  <p>
+    <br>
+            <a href="{{ route('barang.index') }}">
+              <div class="card card-statistic-1">
+                <div class="card-icon bg-success">
+                  <i class="fas fa-circle"></i>
+                </div>
+                <div class="card-wrap">
+                  <div class="card-header">
+                    <h4>Barang</h4>
+                  </div>
+                  <div class="card-body">
+                   
+                  </div>
+                </div>
+              </div>
+            </div>
+        </a>
+
     @endif
 
  
