@@ -14,6 +14,7 @@
             <p> {{ $message }} </p>
           </div>
         @endif
+
         <div class="card">
           <div class="card-header">
             <form method="GET" class="form-inline">
@@ -27,6 +28,9 @@
             <a href="{{ route('fakultas.index') }}" class="pull-right">
               <button type="button" class="btn btn-info">All Data</button>
             </a>
+            <button type="button" class="btn btn-success mr-5" data-toggle="modal" data-target="#importExcel">
+      IMPORT EXCEL
+    </button>
           </div>
           <div class="card-header">
             <a href="{{ route('fakultas.create') }}">
@@ -78,5 +82,30 @@
   </div>
 
 </section>
+
+<!-- Import Excel -->
+    <div id="importExcel" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form method="POST" action="{{ url('/fakultas/import') }}" enctype="multipart/form-data">
+                @csrf
+                    <div class="modal-header">
+                        <h5 class="modal-title">Import Excel</h5>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <label>Upload data Fakultas</label><br>
+                        <input type="file" class="form-control" placeholder="Fakultas" name="excel" accept=".xls, .xlsx">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                        <button type="sumbit" class="btn btn-primary">Tambah</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
 {!! $data->links() !!}
 @endsection()

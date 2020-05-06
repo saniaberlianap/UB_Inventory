@@ -3,7 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Fakultas;
+
+use Maatwebsite\Excel\Facades\Excel;
+
+use App\Imports\FakultasImport;
+
+use Session; 
 
 class FakultasController extends Controller
 {
@@ -23,6 +30,21 @@ class FakultasController extends Controller
         return view('fakultas.index', compact('data'))->with('i', (request()->input('page', 1) - 1) * 5 );
 
         
+    }
+
+     public function import(Request $request)
+    {
+        
+        $this->validate($request, [
+            'excel' => 'required|mimes:csv,xls,xlsx'
+        ]);
+
+        $file = $request->file('excel');
+        $filename = rand().$file->getClientOriginalName();
+        $file->move('uploads/Fakultas/',$filename);
+        Excel::import(new FakultasImport, public_path('uploads/Fakultas/'.$filename));
+
+        return redirect()->route('fakultas.index')->with('success', 'Data Berhasil Diimport.');
     }
 
     /**
