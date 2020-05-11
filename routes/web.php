@@ -22,9 +22,7 @@ Route::get('/sendemail','MailController@send');
 
 Route::group(['middleware' => ['auth', 'chckRole:admin']], function(){
 
-	Route::get('/dashboard', function () {
-    return view('dashboard.index');
-	});
+	Route::get('/dashboard', 'DashboardController@index');
 
 
 		// Fakultas
@@ -61,10 +59,7 @@ Route::group(['middleware' => ['auth', 'chckRole:admin']], function(){
 // Staff
 Route::group(['middleware' => ['auth','chckRole:admin,staff']], function(){
 
-	Route::get('/dashboard', function () {
-    return view('dashboard.index');
-	});
-
+	Route::get('/dashboard', 'DashboardController@index');
 	// Barang
 	Route::get('barang', ['as' => 'barang.index', 'uses' => 'BarangController@index']);
 	Route::get('barang/create', ['as' => 'barang.create', 'uses' => 'BarangController@create']);

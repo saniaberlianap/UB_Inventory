@@ -8,6 +8,9 @@
           </div>
           <ul class="sidebar-menu">
             @if(auth()->user()->role == "admin")
+            <li class="">
+                <a class="nav-link" href="/dashboard"><i class="far fa-square"></i> <span>Dashboard</span></a>
+              </li>
               <li class="">
                 <a class="nav-link" href="{{ route('fakultas.index') }}"><i class="far fa-square"></i> <span>Fakultas</span></a>
               </li>

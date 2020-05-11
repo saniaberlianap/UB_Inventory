@@ -22,7 +22,7 @@
                     <h4>Fakultas</h4>
                   </div>
                   <div class="card-body">
-         
+                    {{ $fakultas }}
                   </div>
                 </div>
               </div>
@@ -39,7 +39,7 @@
                     <h4>Jurusan</h4>
                   </div>
                   <div class="card-body">
-                    
+                    {{ $jurusan }}
                   </div>
                 </div>
               </div>
@@ -56,7 +56,7 @@
                     <h4>Ruangan</h4>
                   </div>
                   <div class="card-body">
-                    
+                    {{ $ruangan }}
                   </div>
                 </div>
               </div>
@@ -73,7 +73,7 @@
                     <h4>Barang</h4>
                   </div>
                   <div class="card-body">
-                   
+                   {{ $barang }}
                   </div>
                 </div>
               </div>
